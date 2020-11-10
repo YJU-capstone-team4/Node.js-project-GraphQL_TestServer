@@ -1,0 +1,19 @@
+{
+  "name": "mongodb-graphql-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_PATH=src nodemon --exec babel-node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.19.0",
+    "apollo-server-express": "^2.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.13",
+    "nodemon": "^2.0.6"
+  }
+}
