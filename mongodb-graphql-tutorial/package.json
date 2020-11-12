@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_PATH=src nodemon --exec babel-node src/index.js"
+    "start": "node apps.js"
   },
   "author": "",
   "license": "ISC",

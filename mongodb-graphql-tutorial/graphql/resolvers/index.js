@@ -2,7 +2,7 @@ const Content = require('../../models/content');
 const { startSession } = require('mongoose');
 const resolvers = {
   Query: {
-    async contents(_, args) {
+    async contents(_, args) {                             // contents 라는 쿼리를 실행했을 때 Book 타입에 맞는 데이터 리스트를 반환하도록 로직 작성.
       try {
         const contents = await Content.find();
         return contents;
