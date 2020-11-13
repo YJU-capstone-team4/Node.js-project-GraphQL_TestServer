@@ -46,6 +46,24 @@ const resolvers = {
         console.log(e);
         throw e;
       }
+    },
+    async updateChannel(_, args) {
+      try {
+        const { ytbLinkAddress, ytbProfile } = await args.channelInput
+        console.log(args, ytbLinkAddress, ytbProfile)
+        await Channel.updateOne({ ytbLinkAddress },
+          {
+            $set: { ytbProfile },
+            $inc: { ytbHits: 1 }
+          }
+        )
+        console.log("업데이트 성공!")
+        const channel = await Channel.findOne({ ytbLinkAddress });
+        return channel;
+      } catch (e) {
+        console.log(e);
+        throw e;
+      }
     }
   }
 };
