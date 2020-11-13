@@ -1,10 +1,15 @@
 const typeDefinitions = `
+	schema {
+		query: RootQuery
+	}
+	type RootQuery {
+	  makgoli : [Makgoli]
+	}
 	type Makgoli {
-			title : String		
+			title : String
 			food_suggestion : String
 			brewery : Brewery
 			product : Product
-		
 	}
 	type Brewery {
 			title : String
@@ -20,18 +25,7 @@ const typeDefinitions = `
 			alcohol_content : String
 			awards : String
 			ingredient : String
-				
 	}
-	type RootQuery {
-	  makgoli : [Makgoli]
-	  product : Product
-	  brewery : Brewery
-	}
-
-	schema {
-		query: RootQuery
-	  }
 `;
-
 
 module.exports = [typeDefinitions];

@@ -4,20 +4,31 @@
 const { gql } = require('apollo-server');
 const typeDefs = gql`
   type Query {
-    contents: [Content]
+    ytbChannel: [Channel]
   }
-  type Content {
+  type Channel {
     _id: ID
-    title: String
-    content: String
-    createdAt: String
+    ytbProfile: String
+    ytbLinkAddress: String
+    ytbSubscribe: Int
+    ytbHits: Int
+    video: [Video]
   }
-  input ContentInput{
-    title: String
-    content: String
+  type Video {
+    ytbVideoId: Int
+    ytbVideoName: String
+    ytbThumbnail: String
+    ytbAddress: String
+    hits: Int
+    storeId: Int
+    uploadDate: String
+  }
+  input ChannelInput {
+    ytbProfile: String
+    ytbLinkAddress: String
   }
   type Mutation{
-    createContent(contentInput: ContentInput): Content!
+    createChannel(channelInput: ChannelInput): Channel!
   }
 `;
 
