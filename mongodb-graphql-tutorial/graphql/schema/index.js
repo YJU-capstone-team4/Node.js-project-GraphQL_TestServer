@@ -26,10 +26,13 @@ const typeDefs = gql`
   input ChannelInput {
     ytbProfile: String
     ytbLinkAddress: String
+    ytbHits: Int
   }
   type Mutation{
     createChannel(channelInput: ChannelInput): Channel!
+    updateChannel(channelInput: ChannelInput): Channel!
   }
 `;
-
+// Channel!
+// ! 를 쓰면 null를 허용하지 않는다는 뜻이다.
 module.exports = typeDefs;
