@@ -1,42 +1,50 @@
-const Content = require('../../models/content');
+// const Content = require('../../models/content');
+const Channel = require('../../models/ytbChannel');
 const { startSession } = require('mongoose');
+
 const resolvers = {
   Query: {
-    async contents(_, args) {                             // contents 라는 쿼리를 실행했을 때 Book 타입에 맞는 데이터 리스트를 반환하도록 로직 작성.
+    async ytbChannel(_, args) {
       try {
-        const contents = await Content.find();
-        return contents;
-      } catch (err) {
-        console.log(err);
-        throw err;
+        const channels = await Channel.find()
+        return channels
+      } catch (e) {
+        console.log(e)
+        throw e
       }
-    },
+    }
   },
-  Content: {
+  Channel: {
     _id(_, args) {
       return _._id;
     },
-    title(_, args) {
-      return _.title;
+    ytbProfile(_, args) {
+      return _.ytbProfile;
     },
-    content(_, args) {
-      return _.content;
+    ytbLinkAddress(_, args) {
+      return _.ytbLinkAddress;
     },
-    createdAt(_, args) {
-      return _.createdAt;
+    ytbSubscribe(_, args) {
+      return _.ytbSubscribe;
+    },
+    ytbHits(_, args) {
+      return _.ytbHits;
+    },
+    video(_, args) {
+      return _.video;
     }
   },
   Mutation: {
-    async createContent(_, args) {
+    async createChannel(_, args) {
       try {
-        const content = new Content({
-          ...args.contentInput
+        const channel = new Channel({
+          ...args.channelInput
         })
-        const result = await content.save();
+        const result = await channel.save();
         return result;
-      } catch (err) {
-        console.log(err);
-        throw err;
+      } catch (e) {
+        console.log(e);
+        throw e;
       }
     }
   }
