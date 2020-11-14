@@ -8,6 +8,7 @@ const typeDefs = gql`
   }
   type Channel {
     _id: ID
+    ytbChannel: String
     ytbProfile: String
     ytbLinkAddress: String
     ytbSubscribe: Int
@@ -24,8 +25,10 @@ const typeDefs = gql`
     uploadDate: String
   }
   input ChannelInput {
+    ytbChannel: String
     ytbProfile: String
     ytbLinkAddress: String
+    ytbSubscribe: Int
     ytbHits: Int
   }
   type Mutation{

@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const channelSchema = new Schema({
+    ytbChannel: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     ytbProfile: {
         type: String,
         required: true
